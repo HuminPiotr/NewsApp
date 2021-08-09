@@ -1,0 +1,28 @@
+@import "variables";
+@import "base";
+@import "components/CountryFilter";
+@import "components/PageSizeFilter";
+@import "components/InfoNote";
+@import "components/News";
+
+h1 {
+  color: $color-blue;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: solid black 2px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+}
+
+.newsList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

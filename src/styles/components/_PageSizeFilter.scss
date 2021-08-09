@@ -1,0 +1,36 @@
+.pageSizeFilter {
+  position: relative;
+  display: block;
+  margin: 0 25px;
+
+  &__text {
+    margin: 0;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &-triangle {
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid black;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__menu {
+    position: absolute;
+    top: 100%;
+    right: -15px;
+    padding: 15px;
+
+    background: coral;
+  }
+}
