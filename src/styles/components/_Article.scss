@@ -1,9 +1,12 @@
-.news {
+.article {
+  position: relative;
   margin: 10px 20px;
   padding: 15px;
   width: 40%;
   max-width: 400px;
   height: 400px;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   transition: 0.5s;
 
@@ -18,11 +21,22 @@
 
   &__image {
     width: 100%;
+    max-height: 200px;
   }
   &__title {
     margin-bottom: 5px;
   }
   &__date {
-    font-size: 12px;
+    font-size: 14px;
+    position: absolute;
+    right: 0px;
+    bottom: 90%;
+    color: black;
+    padding: 10px;
+    border: solid rgb(255, 255, 255) 1px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    background-color: white;
   }
 }

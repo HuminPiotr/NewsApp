@@ -1,35 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { setCountry } from "../actions";
 
-const CountryFilter = () => {
-  const [country, setCountry] = useState("Polska");
-  const [isOpen, setIsOpen] = useState(false);
+const CountryFilter = ({ country, setCountry }) => {
+  const countryOptions = [
+    {
+      id: "pl",
+      name: "Polska",
+    },
+    {
+      id: "cz",
+      name: "Czechy",
+    },
+    {
+      id: "de",
+      name: "Niemcy",
+    },
+  ];
+
+  const changeCountry = () => {
+    const countryId = document.querySelector("#countries").value;
+    const countryName = document.getElementById(countryId).innerText;
+    setCountry({
+      id: countryId,
+      name: countryName,
+    });
+    localStorage.setItem(
+      "country",
+      JSON.stringify({
+        id: countryId,
+        name: countryName,
+      })
+    );
+  };
+
+  const countryOptionsList = countryOptions.map((country) => {
+    return (
+      <option value={country.id} id={country.id} key={country.id}>
+        {country.name}
+      </option>
+    );
+  });
 
   return (
     <div className="countryFilter">
-      <p className="countryFilter__text">
-        Country: &nbsp;
-        <span
-          className="countryFilter__button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {country}
-          <div
-            className={
-              isOpen
-                ? "open countryFilter__button-triangle"
-                : "countryFilter__button-triangle"
-            }
-          ></div>
-        </span>
-      </p>
-      {isOpen && (
-        <div className="countryFilter__menu">
-          <p>Czechy</p>
-          <p>Niemcy</p>
-        </div>
-      )}
+      <label htmlFor="countries">Country: </label>
+      <select
+        name="countries"
+        id="countries"
+        className={"countryFilter__select"}
+        onChange={changeCountry}
+        value={country.id}
+      >
+        {countryOptionsList}
+      </select>
     </div>
   );
 };
 
-export default CountryFilter;
+const mapStateToProps = (state) => {
+  const { country } = state;
+  return { country };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  setCountry: (country) => dispatch(setCountry(country)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryFilter);

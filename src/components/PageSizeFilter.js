@@ -1,36 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { setPageSize } from "../actions";
 
-const PageSizeFilter = () => {
-  const [pageSize, setPageSize] = useState(10);
-  const [isOpen, setIsOpen] = useState(false);
+const PageSizeFilter = ({ pageSize, setPageSize }) => {
+  const pageSizeOptions = [10, 20, 50, 100];
+
+  const changePageSize = () => {
+    const pageSize = document.querySelector("#pageSizes").value;
+    setPageSize(pageSize);
+    localStorage.setItem("pageSize", pageSize);
+  };
+
+  const pageSizeOptionsList = pageSizeOptions.map((pageSize) => {
+    return (
+      <option value={pageSize} id={pageSize} key={pageSize}>
+        {pageSize}
+      </option>
+    );
+  });
 
   return (
     <div className="pageSizeFilter">
-      <p className="pageSizeFilter__text">
-        Page size: &nbsp;
-        <span
-          className="pageSizeFilter__button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {pageSize}
-          <div
-            className={
-              isOpen
-                ? "open pageSizeFilter__button-triangle"
-                : "pageSizeFilter__button-triangle"
-            }
-          ></div>
-        </span>
-      </p>
-      {isOpen && (
-        <div className="pageSizeFilter__menu">
-          <p>20</p>
-          <p>50</p>
-          <p>100</p>
-        </div>
-      )}
+      <label htmlFor="pageSizes">Max page size: </label>
+      <select
+        name="pageSizes"
+        id="pageSizes"
+        className="pageSizeFilter__select"
+        onChange={changePageSize}
+        value={pageSize}
+      >
+        {pageSizeOptionsList}
+      </select>
     </div>
   );
 };
 
-export default PageSizeFilter;
+const mapStateToProps = (state) => {
+  const { pageSize } = state;
+  return { pageSize };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  setPageSize: (pageSize) => dispatch(setPageSize(pageSize)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageSizeFilter);

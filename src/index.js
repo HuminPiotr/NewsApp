@@ -1,7 +1,7 @@
 require("file-loader?name=[name].[ext]!./index.html");
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import Root from "./Root";
 import "./styles/main.scss";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Root />, document.getElementById("root"));

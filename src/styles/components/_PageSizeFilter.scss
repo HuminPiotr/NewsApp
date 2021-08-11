@@ -2,35 +2,39 @@
   position: relative;
   display: block;
   margin: 0 25px;
+  text-align: center;
+  line-height: 180%;
 
   &__text {
     margin: 0;
-  }
-
-  &__button {
     cursor: pointer;
-
-    &-triangle {
-      position: absolute;
-      top: 50%;
-      right: -15px;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid black;
-
-      &.open {
-        transform: rotate(180deg);
-      }
-    }
   }
+
+  &__select {
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   &__menu {
     position: absolute;
     top: 100%;
     right: -15px;
     padding: 15px;
+    background: rgb(240, 240, 240);
+    z-index: 100;
 
-    background: coral;
+    &-option {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      &.hidden {
+        display: none;
+      }
+      &:hover {
+        background: cornsilk;
+      }
+    }
   }
 }

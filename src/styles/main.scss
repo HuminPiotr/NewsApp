@@ -1,19 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
+// font-family: Domine Serif
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+// font-family: DM Serif
+
 @import "variables";
 @import "base";
 @import "components/CountryFilter";
 @import "components/PageSizeFilter";
 @import "components/InfoNote";
-@import "components/News";
+@import "components/Article";
+@import "components/Spinner";
+
+body {
+  font-family: "Domine", serif;
+}
+
+p {
+  line-height: 160%;
+}
 
 h1 {
-  color: $color-blue;
+  color: black;
   text-align: center;
+  font-family: "DM Serif Display", serif;
+  border-top: black dotted 1px;
+  padding-top: 25px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  border: solid black 2px;
 }
 
 .filters {
@@ -21,8 +37,9 @@ h1 {
   justify-content: center;
 }
 
-.newsList {
+.articlesList {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 }
