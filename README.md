@@ -38,7 +38,7 @@ $ npm install
 $ npm run start
 ```
 
-And for the final build: 
+### And for the final build: 
 
 ### Aby zbudować finalną wersje projektu
 
