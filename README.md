@@ -3,8 +3,6 @@ App used https://newsapi.org
 
 Apka używająca https://newsapi.org
 
-## Live || Podgląd ⚡️
-www.google.com
 
 ## How To Use || Jak używać 🔧
 
