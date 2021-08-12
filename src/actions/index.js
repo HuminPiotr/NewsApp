@@ -1,5 +1,4 @@
 export const updateArticles = (articles) => {
-  console.log("acja" + articles);
   return {
     type: "UPDATE",
     payload: {
@@ -18,7 +17,6 @@ export const setCountry = (country) => {
 };
 
 export const setPageSize = (size) => {
-  console.log(size);
   return {
     type: "SET_PAGE_SIZE",
     payload: {
@@ -28,7 +26,6 @@ export const setPageSize = (size) => {
 };
 
 export const setMaxPageSize = (size) => {
-  console.log(size);
   return {
     type: "SET_MAX_PAGE_SIZE",
     payload: {

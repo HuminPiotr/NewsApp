@@ -18,15 +18,13 @@ const App = ({
   updateArticles,
   setMaxPageSize,
 }) => {
-  const API_KEY = "de0c146bd6de41f2a3e5e3779389f46e";
-  let link = `https://newsapi.org/v2/top-headlines?country=${country.id}&pageSize=${pageSize}&apiKey=${API_KEY}`;
+  const API_KEY = "8a525690c031443ab798692d9dec548a";
   let data;
-  let article;
 
   const [loading, setLoading] = useState(false);
 
   const loadData = async () => {
-    link = `https://newsapi.org/v2/top-headlines?country=${country.id}&pageSize=${pageSize}&apiKey=${API_KEY}`;
+    const link = `https://newsapi.org/v2/top-headlines?country=${country.id}&pageSize=${pageSize}&apiKey=${API_KEY}`;
 
     if (!loading) {
       setLoading(true);
@@ -62,8 +60,8 @@ const App = ({
     <div className="container">
       <h1 className="header">News App</h1>
       <div className="filters">
-        <CountryFilter />
-        <PageSizeFilter />
+        <CountryFilter isLoading={loading} />
+        <PageSizeFilter isLoading={loading} />
       </div>
       <InfoNote />
       <div className="articlesList"> {articleItemList} </div>

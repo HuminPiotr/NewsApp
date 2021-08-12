@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setPageSize } from "../actions";
 
-const PageSizeFilter = ({ pageSize, setPageSize }) => {
+const PageSizeFilter = ({ pageSize, setPageSize, isLoading }) => {
   const pageSizeOptions = [10, 20, 50, 100];
 
   const changePageSize = () => {
@@ -28,6 +28,7 @@ const PageSizeFilter = ({ pageSize, setPageSize }) => {
         className="pageSizeFilter__select"
         onChange={changePageSize}
         value={pageSize}
+        disabled={isLoading ? true : false}
       >
         {pageSizeOptionsList}
       </select>
@@ -35,6 +36,7 @@ const PageSizeFilter = ({ pageSize, setPageSize }) => {
   );
 };
 
+//redux
 const mapStateToProps = (state) => {
   const { pageSize } = state;
   return { pageSize };

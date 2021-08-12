@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { setCountry } from "../actions";
 
-const CountryFilter = ({ country, setCountry }) => {
+const CountryFilter = ({ country, setCountry, isLoading }) => {
   const countryOptions = [
     {
       id: "pl",
@@ -51,6 +51,7 @@ const CountryFilter = ({ country, setCountry }) => {
         className={"countryFilter__select"}
         onChange={changeCountry}
         value={country.id}
+        disabled={isLoading ? true : false}
       >
         {countryOptionsList}
       </select>
@@ -58,6 +59,7 @@ const CountryFilter = ({ country, setCountry }) => {
   );
 };
 
+//redux
 const mapStateToProps = (state) => {
   const { country } = state;
   return { country };

@@ -13,7 +13,7 @@ const Article = ({ title, date, description, image, link }) => {
     let textIsComplite = false; //does the text have maxLength - 3
     let trimmedString;
 
-    if (String(description).length < 60 - 3) {
+    if (String(description).length < maxLength) {
       textIsComplite = true;
     }
 
@@ -27,14 +27,15 @@ const Article = ({ title, date, description, image, link }) => {
     );
     return textIsComplite ? trimmedString : `${trimmedString}...`;
   };
+
   return (
     <a className="article" href={link} target="_blank">
-      {/* <div className="article"> */}
       <img className="article__image" src={image}></img>
       <h3 className="article__title">{title}</h3>
       <span className="article__date">{getFormatDate(date)}</span>
-      <p>{getTrimDescription(description, 60)}</p>
-      {/* </div> */}
+      <p className="article__description">
+        {getTrimDescription(description, 60)}
+      </p>
     </a>
   );
 };

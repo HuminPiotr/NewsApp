@@ -8,6 +8,7 @@ const InfoNote = ({ pageSize, maxPageSize, country }) => (
   </p>
 );
 
+//redux
 const mapStateToProps = (state) => {
   const { pageSize, maxPageSize, country } = state;
   return { pageSize, maxPageSize, country };
