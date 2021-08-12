@@ -40,7 +40,7 @@ $ npm run start
 
 ### And for the final build: 
 
-### Aby zbudować finalną wersje projektu
+### Aby zbudować finalną wersje projektu:
 
 Using Yarn: || Przy pomocy Yarn:
 
