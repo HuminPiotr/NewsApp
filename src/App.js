@@ -18,7 +18,7 @@ const App = ({
   updateArticles,
   setMaxPageSize,
 }) => {
-  const API_KEY = "8a525690c031443ab798692d9dec548a";
+  const API_KEY = "7f1a9f5c018c4f07a4609ab556466dcf";
   let data;
 
   const [loading, setLoading] = useState(false);
